@@ -1,16 +1,105 @@
 @import "./fonts.scss";
 
+$chillax: 'Chillax-Regular', sans-serif;
+$cabinet-med: 'CabinetGrotesk-Medium', sans-serif;
+$cabinet-bold: 'CabinetGrotesk-Bold', sans-serif;
+$bitter: 'BitterRose', serif;
+$yellow: #FACE8D;
+$green: #081212;
+$semi-white: #e8e8e8;
+$semi-dark: #333;
 
 
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    
+}
+* {
+    margin: 0;  
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+ 
+
+}
+
+
+// end of reset
 body {
     background-color: #000;
 }
 
-h1 {
-    color: yellow;
-    font-family: 'BitterRose';
-    font-size: 100px;
+
+// nav
+header {
+    width: 80%;
+    max-width: 56rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+
+    h3 {
+        font-family: $chillax;
+        font-size: 1.5rem;
+        color: $semi-white;
+        cursor: pointer;
+    }
+    
+    ul {
+        padding: 0;
+        display: flex;
+        background-color: transparent;
+        border-radius: 3rem;
+        overflow: hidden;
+        // border: 1px solid $semi-white;
+
+    }
+    
+    
+    li {
+        background-color: $semi-white;
+        list-style: none;
+        font-family: $chillax;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    li:nth-child(2) {
+        border-left: 1px solid #0000001e;
+        border-right: 1px solid #0000001e;
+    }
+
+    li:hover {
+        background: linear-gradient(180deg, $semi-white 89%, $green 90%, $green 100%);
+        // color: $semi-white;
+
+    }
+    p {
+        margin: 1.2rem 1.6rem;
+        font-size: 1rem;
+    }
 }
+
+
+
+
 
 .bg-holder {
     position: absolute;
@@ -31,5 +120,69 @@ h1 {
     position: relative;
     opacity: 50%;
 
+}
+
+
+
+//home
+
+.content-center {
+    width: 100vw;
+    height: calc(100vh - 8rem);
+    display: grid;
+    place-items: center;
+}
+
+#home-content {
+
+    margin-bottom: 4rem ;
+    text-align: center;
+    
+    
+    h3 {
+        font: 400 4rem $bitter;
+        color: $yellow;
+    }
+    h1 {
+        font: 500 8rem $chillax;
+        color: $semi-white;
+        margin-top: -3rem;
+    }
+    p {
+        margin: 0 auto;
+        width: 40rem;
+        
+        font: 400 1rem $chillax;
+        line-height: 1.8;
+        color: $semi-white;
+
+    }
+}
+
+#opening-card {
+    background-color: $semi-white;
+    width: 20rem;
+    margin: 0 auto;
+    padding: 1.2rem;
+    border-radius: 10px;
+    p {
+        font: 600 0.9rem $chillax;
+        text-align: center;
+    }
+
+    > p {
+        font-weight: 900;
+    }
+
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.4rem;
+    }
+
+    div:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
