@@ -1,4 +1,6 @@
-import { create } from './global.js'
+import { create } from './global.js';
+import imgHolder from '../img/holder.png';
+
 
 class Food{
     constructor(pic, name, desc, price){
@@ -11,25 +13,29 @@ class Food{
     createCard() {
         const div = create('div');
         const paraDiv = create('div');
+        const imgDiv = create('div');
         const img = create('img');
         const foodName = create('p');
         const desc = create('p');
         const price = create('p');
 
         price.className = 'price';
-        desc.className = 'foodSub';
-        foodName.className = 'foodName';
-        img.className = 'img';
+        desc.className = 'desc';
+        foodName.className = 'food-name';
+        imgDiv.className = 'img-box';
         div.className = 'card';
-        div.id = this.name;
+        div.id = this.name.toLowerCase().split(" ").join("-");
 
         price.textContent = this.price;
         desc.textContent = this.desc;
         foodName.textContent = this.name;
-        img.src = this.pic;
-
-        paraDiv.append(foodName, desc);
-        div.append(img, paraDiv, price);
+        img.src = imgHolder;
+        img.alt = `${this.name} icon`;
+        // imgDiv.appendChild(img);
+ 
+      
+        paraDiv.append(foodName, price, desc);
+        div.append(imgDiv, paraDiv);
 
         return div;
     }

@@ -15,8 +15,13 @@ $semi-dark: #333;
     box-sizing: border-box;
     
 }
+:root {
+    color: white;
+}
 * {
     margin: 0;  
+    font-family: $chillax;
+  
 }
 body {
     line-height: 1.5;
@@ -33,10 +38,18 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
- 
-
 }
 
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    
+}
 
 // end of reset
 body {
@@ -63,7 +76,6 @@ header {
     }
     
     ul {
-        padding: 0;
         display: flex;
         background-color: transparent;
         border-radius: 3rem;
@@ -75,10 +87,11 @@ header {
     
     li {
         background-color: $semi-white;
-        list-style: none;
+
         font-family: $chillax;
         font-weight: 600;
         cursor: pointer;
+        color: $semi-dark;
     }
 
     li:nth-child(2) {
@@ -140,6 +153,7 @@ header {
     margin: 0 auto;
     padding: 1.2rem;
     border-radius: 10px;
+    color: $semi-dark;
     p {
         font: 600 0.9rem $chillax;
         text-align: center;
@@ -147,6 +161,7 @@ header {
 
     > p {
         font-weight: 900;
+        border-bottom: 2px solid rgb(199, 199, 199);
     }
 
 
@@ -154,6 +169,12 @@ header {
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.4rem;
+        border-bottom: 3px solid transparent;
+        cursor: pointer;
+    }
+
+    div:hover {
+        border-bottom: 3px solid rgb(212, 212, 212);
     }
 
     div:last-of-type {
@@ -184,10 +205,105 @@ header {
 
 }
 
+#menu-nav{
+    width: 80%;
+    max-width: 56rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
 
-.meals {
-    color: white;
-    border: 1px solid yellow;
-    display: flex;
+    ul {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    li:hover {
+        color: $yellow;
+    }
 }
 
+#menu-content {
+    width: 80%;
+    height: calc(100vh - 1rem - 10rem);
+    max-width: 60rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(25rem, 1fr) );
+    gap: 3rem;
+    padding-top: 3rem;
+    scrollbar-width: none;
+    overflow-y: scroll;
+
+}
+
+@media screen and (max-width: 1084px) {
+    #menu-content{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+  }
+
+.meals {
+    display: block;
+  
+    h3 {
+        font: 400 4rem $bitter;
+        color: $yellow;
+        text-align: center;
+    }
+}
+
+.meal-food {
+    display: block;
+}
+
+.card {
+    display: flex;
+    padding: 1rem;
+    width: 27.5rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    div:last-child{
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+
+        .food-name {
+            font: 600 1.25rem $chillax;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+        }
+
+        .price {
+            text-align: right;
+        }
+    }
+
+
+}
+
+.card:hover {
+    border: 1px solid $yellow;
+}
+
+
+.img-box {
+    width: 5.5rem;
+    height: 4.5rem;
+    border-radius: 10px;
+    background-color: $yellow;
+    margin-right: 1.5rem
+    // overflow: hidden;
+
+    // img {
+    //     object-fit: fill;
+    //     object-position: 50% 25%;
+    //     transform: scale(2.0);
+    //     filter: invert(1);
+    
+    // }
+}

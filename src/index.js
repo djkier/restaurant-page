@@ -14,7 +14,7 @@ function header () {
         const item = document.createElement('p');
         item.appendChild(document.createTextNode(str));
         li.appendChild(item);
-        li.id = str;
+        li.id = str.toLowerCase().split(" ").join("-");
         return li;
     }
 
@@ -26,13 +26,27 @@ function header () {
 
 header();
 
-
+const page = document.querySelectorAll('header nav ul li');
+page.forEach(opt => {
+    opt.addEventListener('click', () => {
+        let filler;
+        if (opt.id === 'home') {
+            filler = [homeContent()];
+        } else if (opt.id === 'menu') {
+            filler = [menuNavBar(), menuContent()];
+        } else {
+            filler = [homeContent()];
+        }
+        content.replaceChildren();
+        content.append(...filler);
+    })
+});
 
 const content = document.querySelector('#content');
 document.body.appendChild(homeBg());
 
 //contents ---homeContent(),menuContent(),aboutContent()----
-content.append(menuNavBar(), menuContent());
-
+// content.append(menuNavBar(), menuContent());
+content.append(homeContent());
 
 
