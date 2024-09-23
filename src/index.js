@@ -1,6 +1,6 @@
 import './styles/styles.scss';
 import { homeBg, homeContent} from './components/home.js';
-
+import { menuContent, menuNavBar } from './components/menu.js';
 
 
 function header () {
@@ -30,7 +30,9 @@ header();
 
 const content = document.querySelector('#content');
 document.body.appendChild(homeBg());
-content.append(homeContent());
+
+//contents ---homeContent(),menuContent(),aboutContent()----
+content.append(menuNavBar(), menuContent());
 
 
 
